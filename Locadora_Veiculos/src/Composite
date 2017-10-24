@@ -1,0 +1,73 @@
+package Composite;
+
+import Composite.ArquivoComponent;
+import Composite.ArquivoComposite;
+import Composite.Pessoa;
+
+public class Main {
+
+	public static void main(String[] args) {
+	    ArquivoComponent cadastro = new ArquivoComposite("Nomes da pasta de cadastro");
+	    ArquivoComponent pessoa = new Pessoa("Henrique Roberto Ricci");
+	    ArquivoComponent codigo = new Pessoa("Número do Cadastro: 8575");
+        ArquivoComponent idade = new Pessoa("Idade: 20");
+        ArquivoComponent email = new Pessoa("email: de10ricci@gmail.com");
+        ArquivoComponent cpf = new Pessoa("CPF: 4654755455");
+        ArquivoComponent sexo = new Pessoa("Sexo: Masculino");
+        ArquivoComponent telefone = new Pessoa("Telefone: 565646546");
+        ArquivoComponent rua = new Pessoa("Rua: Avenida Brasil");
+        ArquivoComponent bairro = new Pessoa("Bairro: Santa Luzia");
+        ArquivoComponent cidade = new Pessoa("Cidade: Hortolandia");
+        ArquivoComponent numero = new Pessoa("Numero: 125");                  
+        ArquivoComponent cep = new Pessoa("CEP: 13245");
+        ArquivoComponent estado = new Pessoa("Estado: SP");
+        ArquivoComponent datanasc = new Pessoa("Data de Nascimento: 08/05/1997");      
+        ArquivoComponent categoriacnh = new Pessoa("Categoria CNH: A e B");
+        ArquivoComponent numerocnh = new Pessoa("Numero da CNH: 2542547");
+        ArquivoComponent login = new Pessoa("Login: Henrique Roberto");
+        ArquivoComponent senha = new Pessoa("Senha: *******");
+        ArquivoComponent tipo = new Pessoa("Tipo: Cliente");              
+    
+	    try {
+	        pessoa.adicionarPessoa(codigo);
+	    } catch (Exception e) {
+	        System.out.println(e.getMessage());
+	    }
+	 
+	    try {
+	        cadastro.adicionarPessoa(pessoa);
+	        cadastro.adicionarPessoa(codigo);
+                cadastro.adicionarPessoa(idade);
+                cadastro.adicionarPessoa(email);
+                cadastro.adicionarPessoa(cpf);
+                cadastro.adicionarPessoa(sexo);
+                cadastro.adicionarPessoa(telefone);
+                cadastro.adicionarPessoa(rua);
+                cadastro.adicionarPessoa(bairro);
+                cadastro.adicionarPessoa(cidade);
+                cadastro.adicionarPessoa(numero);
+                cadastro.adicionarPessoa(cep);
+                cadastro.adicionarPessoa(estado);
+                cadastro.adicionarPessoa(datanasc);
+                cadastro.adicionarPessoa(categoriacnh);
+                cadastro.adicionarPessoa(numerocnh);
+                cadastro.adicionarPessoa(login);
+                cadastro.adicionarPessoa(senha);
+                cadastro.adicionarPessoa(tipo);
+                cadastro.printNomePessoa();
+	    } catch (Exception e) {
+	        System.out.println(e.getMessage());
+	    }
+	 
+	    try {
+	        System.out.println("\nPesquisando Pessoa na pasta de cadastro:");
+	        cadastro.getPessoa(pessoa.getNomePessoa())
+	                .printNomePessoa();
+	        System.out.println("\nRemover Pessoa da Pasta:");
+	        cadastro.removerPessoa(pessoa.getNomePessoa());
+	        cadastro.printNomePessoa();
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	}
+}
